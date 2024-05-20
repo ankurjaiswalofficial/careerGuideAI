@@ -1,7 +1,16 @@
+# Ignoring src and assets folders
+
+# Ignoring static/assets folders
+./assets/
+static/
+staticfiles/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Node Modules
+node_modules/
 
 # C extensions
 *.so
@@ -120,7 +129,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+#.env
 .venv
 env/
 venv/
