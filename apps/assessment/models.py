@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 
 class SkillsSet(models.Model):
-    skillname = models.CharField(max_length=250)
+    skillName = models.CharField(max_length=250)
+    skillImage = models.ImageField()
 
 class AssessmentModel(models.Model):
     username = models.OneToOneField(User, on_delete=models.CASCADE)

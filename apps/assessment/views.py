@@ -3,7 +3,7 @@ from django.http.request import HttpRequest as HttpRequest
 from django.http.response import HttpResponse as HttpResponse
 from django.views.generic import TemplateView
 from web_project import TemplateLayout
-
+from .models import SkillsSet
 
 """
 This file is a view controller for multiple pages as a module.
@@ -13,13 +13,11 @@ Refer to form/urls.py file for more pages.
 
 
 class AssessmentView(TemplateView):
+    skillset = SkillsSet.objects.all()
     # Predefined function
     def get_context_data(self, **kwargs):
         # A function to init the global layout. It is defined in web_project/__init__.py file
         context = TemplateLayout.init(self, super().get_context_data(**kwargs))
+        context["skills"] = self.skillset
 
         return context
-
-    def get(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
-        
-        return super().get(request, *args, **kwargs)
